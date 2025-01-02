@@ -1,3 +1,8 @@
+:root {
+    --grid-width: 600px;
+    --accent-color: #04AA6D;
+    --inactive-color: rgba(0, 0, 0, 0.25);
+}
 *{
     margin: 0;
     padding: 0;
@@ -6,13 +11,100 @@ body{
     background-color: aliceblue;
     box-sizing: border-box;
 }
+.container {
+    margin: 0 auto;
+    width: var(--grid-width);
+}
+.top{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    background-color: inherit;
+    color: var(--inactive-color);
+}
+.top-button{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding: 6px;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
+}
+
+.button-cat {
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.473);
+    padding: 0 6px;
+}
+.top-button:hover{
+    color: var(--accent-color);
+    cursor: pointer;
+}
+#pen-color {
+    border: none;
+}
+.pen-color:hover{
+    cursor: pointer;
+}
+.top-button:last-child{
+    position: relative;
+    
+}
+#pen-color::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 30px;
+    background-color: transparent;
+    padding-left: 107px;
+    padding-bottom: 9px;
+    border-radius: 3px;
+}
 #sketch-area{
     background-color: white;
     display: flex;
     flex-wrap: wrap;
-    margin: 100px auto;
-
+    margin: 10px auto;
+    box-shadow: rgba(0, 0, 0, 0.14) 0px 3px 8px;
 }
 .cell{
     border: 1px solid whitesmoke;
+}
+
+#slider-value{
+    text-align: center;
+    margin: 0 auto;
+}
+.slider{
+    /* -webkit-appearance: none; */
+    appearance: none;
+    width: 100%;
+    height: 25px;
+    outline: none;
+    border-radius: 4px;
+    opacity: 0.7;
+    background: #31dbe0;
+    transition: opacity .2;
+    -webkit-transition: .2;
+}
+.slider:hover{
+    opacity: 1;
+}
+
+/* Tùy chỉnh núm trượt */
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Loại bỏ kiểu mặc định */
+    width: 23px; /* Chiều rộng của núm trượt */
+    height: 25px; /* Chiều cao của núm trượt */
+    background: #007bff; /* Màu nền của núm trượt */
+    border-radius: 2px; /* Không bo góc để tạo hình vuông */
+    cursor: pointer; /* Thay đổi con trỏ chuột */
+}
+
+/* Cải tiến cho Edge và Chrome */
+.slider:focus::-webkit-slider-thumb {
+    background: #0056b3; /* Đổi màu núm trượt khi focus */
+    border-color: #222; /* Đổi màu viền */
 }
